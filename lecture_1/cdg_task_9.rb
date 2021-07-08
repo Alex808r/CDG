@@ -18,6 +18,7 @@ def amount
 end
 
 def add_pokemons(pokemons)
+  #Вызываем метод для запроса количества покемонов
   amount
   #Открвываем основной цикл добавления покемонов
   @amount.times do

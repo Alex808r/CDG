@@ -5,21 +5,35 @@
 
 #Вариант 2 c использованием метода
 
+def collate(number_1,number_2)
+  if number_1 == 20 || number_2 == 20
+    puts "Возвращаем первое число: #{number_1}" if number_1 == 20
+    puts "Возвращаем второе число: #{number_2}" if number_2 == 20
+  else
+    puts "Сумма введенных чисел: #{number_1 + number_2}"
+  end
+end
+
+collate(5,20)
+collate(20,20)
+collate(7,3)
+
+#Еще один способ использовать метод
+#
 #Объявляем метод запроса ввода из консоли. В нем приводим введенное значение к типу число
-def number
-  gets.to_i
-end
-
-
-puts 'Введите два числа.'
-#Используем множественное присвоение
-number_1, number_2 = number, number
-
-if number_1 == 20 || number_2 == 20
-  puts "Возвращаем первое число: #{number_1}" if number_1 == 20
-  puts "Возвращаем второе число: #{number_2}" if number_2 == 20
-else
-  puts "Сумма введенных чисел: #{number_1 + number_2}"
-end
-
-
+# def number
+#   gets.to_i
+# end
+#
+#
+# puts 'Введите два числа.'
+# #Используем множественное присвоение
+# number_1, number_2 = number, number
+#
+#
+# if number_1 == 20 || number_2 == 20
+#   puts "Возвращаем первое число: #{number_1}" if number_1 == 20
+#   puts "Возвращаем второе число: #{number_2}" if number_2 == 20
+# else
+#   puts "Сумма введенных чисел: #{number_1 + number_2}"
+# end

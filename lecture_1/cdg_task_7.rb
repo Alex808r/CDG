@@ -4,17 +4,19 @@
 слово задом наперед
 =end
 
-#Вариант 2 c использванием метода
-
-def number_and_word
-  gets.strip
+# Вариант 2 c использванием метода
+# Метод имеет параметры по умолчанию
+def number_and_word(number = 10, word = 'CS')
+  puts word[(-2..-1)] == 'CS' ? 2 ** word.size : word.downcase.reverse
 end
 
 print 'Введите число: '
-number = number_and_word.to_i
+number = gets
 
 print 'Введите слово: '
-word = number_and_word.upcase
+word = gets.strip.upcase
 
-puts word[(-2..-1)] == 'CS' ? 2 ** word.size : word.downcase.reverse
-
+#Вызываем метод и передаем ему 2 аргумента,
+number_and_word(number,word)
+#Взываем метод без аргументов, с параметрами по умолчанию
+number_and_word

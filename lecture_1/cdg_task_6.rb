@@ -7,7 +7,7 @@
 #Вариант 1 без использвания метода
 
 print 'Введите число: '
-#Ограничим вводенное значение числом
+#Ограничим введенное значение типом число
 number = Integer(gets)
 
 print 'Введите слово: '
@@ -21,8 +21,3 @@ puts word[(-2..-1)] == 'CS' ? 2 ** word.size : word.downcase.reverse
 #   puts word.downcase.reverse
 # end
 
-#Вариант 2 с использование метода
-
-def number_and_word
-  gets.strip
-end
