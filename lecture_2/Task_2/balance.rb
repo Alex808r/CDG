@@ -8,31 +8,42 @@
 Программа должна принимать на вход значения в верхнем или нижнем регистре
 =end
 
+#Сохраним в переменнюу путь к самой программе чтобы гарантировать в дальнейшем правильный путь к файлу balance.txt
 current_path = File.dirname(__FILE__)
 
+# Записываем путь к файлу в переменную / теперь можем запускать программу вне зависимости от нашего местоположения в консоли
 file_path = current_path + './data/balance.txt'
 
+#Проводим проверку наличия файла, если файл есть, то пристваиваем переменной значение из файла если нет, то присваиваем
+# дефолтное значение 100.0
 if File.exist?(file_path)
-  f = File.open(file_path,'r')
-  BALANCE = f.read.to_i
-  #f.close
-  else
+  f = File.open(file_path,'a+')
+  BALANCE = f.read.to_f
+else
   BALANCE = 100.0
   puts 'Файл "balance.txt" не найдет, используется дефолтный баланс: 100.0'
 end
 
+# Главный цикл
 loop do
-  print "Выберите желаемое действие с вашим балансом - D(положить) W(снять) B(баланс) Q(выход): "
+  print 'Выберите желаемое действие с вашим балансом - D(положить), W(снять), B(показать), Q(выйти): '
   choice = gets.strip.upcase
-    case choice
-    when 'Q' then exit
-    when 'D' then
-      print "Введите сумму для пополнения: "
-      BALANCE += gets.to_i
-    when 'W' then
-      print "Введите сумму для снятия: "
-      BALANCE -= gets.to_i
-    when 'B' then puts "Ваш баланс #{BALANCE}"
-    end
+  case choice
+  when 'D' then
+    print "Текущий баланс #{BALANCE}. Введите сумму для пополнения: "
+    add = gets.to_f
+    puts add > 0 ? "Ваш баланс пополнен: #{BALANCE += add}" : "Сумма не может быть меньше 0"
+  when 'W' then
+    print "Введите сумму для снятия: "
+    withdraw = gets.to_f
+    puts "Сумма не может быть меньше 0" if withdraw < 0
+    puts withdraw > BALANCE ? "Сумма не может быть больше текущего баланса" : "Ваш баланс #{BALANCE -= withdraw}"
+    # puts withdraw >= 0 && withdraw <= BALANCE ? "Ваш баланс #{BALANCE -= withdraw}" : "Сумма слишком большая или равна 0"
+  when 'B' then puts "Ваш баланс #{BALANCE}"
+  when 'Q' then break puts "Выход из программы. Баланс #{BALANCE} сохранен в файл."
+  end
 end
-
+#Создадим переменную для испльзования метода Time для отображения текущего времени / даты
+time = Time.now
+f.puts("Баланс #{BALANCE} дата и время #{time.strftime('%Y-%m-%d')}")
+f.close
