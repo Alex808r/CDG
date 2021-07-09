@@ -20,7 +20,8 @@ amount.times do
   name = gets.strip.capitalize
   print 'Введите цвет покемона: '
   color = gets.strip.capitalize
-  pokemons.push({name: name, color: color})
+    pokemons.push({name: name, color: color})
+    #pokemons.push({name => color}) - связать Имя покемона с его цветом / ключ значение / вывод отличается от заданного
 end
 
 #Выводим получившийся массив в формате задания
