@@ -15,10 +15,10 @@ print 'Сколько добавить покемонов: '
 amount = Integer(gets) # можно иначе amount = gets.to_i
 
 #Открвываем основной цикл добавления покемонов
-amount.times do
-  print 'Введите имя покемона: '
+amount.times do |index|
+  print "Введите имя покемона #{index+1}: "
   name = gets.strip.capitalize
-  print 'Введите цвет покемона: '
+  print "Введите цвет покемона #{index+1}: "
   color = gets.strip.capitalize
     pokemons.push({name: name, color: color})
     #pokemons.push({name => color}) - связать Имя покемона с его цветом / ключ значение / вывод отличается от заданного
