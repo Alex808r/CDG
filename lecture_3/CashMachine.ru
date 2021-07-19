@@ -58,11 +58,6 @@ class CashMachine
     self.show
   end
 
-  def save(money)
-    @f.puts(money)
-    @f.close
-  end
-
 end
 
 # Сервер для банкомата
@@ -87,8 +82,6 @@ class App
       [200, {'Content-Type' => 'text/html'}, [@cashmachine.add_money(req.params['value'])]]
     when '/withdraw'
       [200, {'Content-Type' => 'text/html'}, [@cashmachine.withdraw(req.params['value'])]]
-      #when '/save'
-      #[200, {'Content-Type' => 'text/html'}, [@cashmachine.save(@money)]]
     else
       [404, {'Content-Type' => 'text/html'}, ["Not found"]]
     end
